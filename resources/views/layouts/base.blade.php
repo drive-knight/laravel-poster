@@ -10,21 +10,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-light bg-light">
-        <a href="{{ route('index') }}" class="navbar-brand mr-auto ">Главная</a>
-        @guest
+<nav class="navbar navbar-dark bg-dark">
+    <a href="{{ route('index') }}" class="navbar-brand mr-auto ">Главная</a>
+    @guest
         <a href="{{ route('register') }}" class="nav-item nav-link ">Регистрация</a>
         <a href="{{ route('login') }}" class="nav-item nav-link">Вход</a>
-        @endguest
-        @auth
+    @endguest
+    @auth
         <a href="{{ route('home') }}" class="nav-item nav-link">Мои объявления</a>
         <form action="{{ route('logout') }}" method="POST" class="form-inline">
             @csrf
             <input type="submit" class="btn btn-danger" value="Выход">
         </form>
-        @endauth
-    </nav>
+    @endauth
+</nav>
+<div class="container mt-3">
     <h1 class="my-3 text-center">Объявления</h1>
     @yield('main')
 </div>
